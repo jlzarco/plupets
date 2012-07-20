@@ -8,6 +8,18 @@ gem 'rails', '3.2.5'
 gem 'pg'
 gem 'thin'
 
+group :development, :test do
+    gem 'rspec-rails', '2.10.0'
+    gem 'guard-rspec', '0.5.5'
+end
+
+group :test do
+  gem 'capybara', '1.1.2'
+  gem 'rspec-rails', '2.10.0'
+  gem 'spork', '0.9.0'
+  gem 'guard-spork', '0.3.2'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,6 +34,16 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :mac_development do #en mac hacer bundle install --without linux_development
+  gem 'rb-fsevent', '0.4.3.1', :require => false
+  gem 'growl', '1.0.3'
+end
+
+group :linux_development do #en ubuntu hacer bundle install --without mac_development
+  gem 'rb-inotify', '0.8.8'
+  gem 'libnotify', '0.5.9'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
