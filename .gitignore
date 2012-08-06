@@ -26,3 +26,4 @@ config/database.yml
 *.DS_Store
 *.swp
 *.out
+config/database.yml
