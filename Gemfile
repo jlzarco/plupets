@@ -7,6 +7,14 @@ gem 'rails', '3.2.5'
 
 gem 'pg'
 gem 'thin'
+gem 'carrierwave'
+gem "rmagick"
+gem 'devise'
+gem 'cancan'
+gem "omniauth-facebook"
+
+gem "activerecord-postgresql-adapter"
+
 
 group :development, :test do
     gem 'rspec-rails', '2.10.0'
@@ -36,7 +44,7 @@ end
 gem 'jquery-rails'
 
 group :mac_development do #en mac hacer bundle install --without linux_development
-  gem 'rb-fsevent', '0.4.3.1', :require => false
+  gem 'rb-fsevent', :require => false
   gem 'growl', '1.0.3'
 end
 

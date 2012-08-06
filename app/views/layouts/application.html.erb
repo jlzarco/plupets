@@ -5,9 +5,24 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+	<style type="text/css">
+		ul.hmenu {
+		  list-style: none;	
+		  margin: 0 0 2em;
+		  padding: 0;
+		}
+
+		ul.hmenu li {
+		  display: inline;  
+		}
+		
+	</style>
 </head>
 <body>
-
+	<ul class="hmenu">
+	  <%= render 'users/menu/registration_items' %>
+	  <%= render 'users/menu/login_items' %>
+	</ul>
 <%= yield %>
 
 </body>

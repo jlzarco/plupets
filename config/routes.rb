@@ -1,4 +1,11 @@
 Plupets::Application.routes.draw do
+  resources :roles
+
+  devise_for :users
+  match '/auth/:provider/callback' => 'authentications#create'
+
+  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
