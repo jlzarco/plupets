@@ -1,10 +1,14 @@
 Plupets::Application.routes.draw do
+  get "pages_controller/home"
+
   resources :roles
 
   devise_for :users
   match '/auth/:provider/callback' => 'authentications#create'
 
-  
+  root to: 'pages_controller#home'
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
