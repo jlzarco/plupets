@@ -1,0 +1,19 @@
+<div class="hmenu">
+  <ul>
+    <% if user_signed_in? %>
+      <li>Logged in as: <%= current_user.email %></li>
+      |
+      <li> <%= link_to('Edit', edit_user_registration_path) %> </li>
+      |
+      <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    <% else %>
+      <li> <%= link_to('Register', new_user_registration_path)  %> </li>
+      |
+      <li> <%= link_to('Login', new_user_session_path)  %></li>
+      |
+      <li><%= link_to image_tag("twitter_32.png"), user_omniauth_authorize_path(:twitter), class: "logo" %></li>
+      |
+      <li><%= link_to image_tag("facebook_32.png"), user_omniauth_authorize_path(:facebook), class: "logo" %></li>
+    <% end %>
+  </ul>
+</div>

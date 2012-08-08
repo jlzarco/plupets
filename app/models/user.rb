@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :role
-  has_many :authentications
+  #has_and_belongs_to_many :role
+  has_many :authorizations
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me ,:role_ids ,:provider
-  
+
   # attr_accessible :title, :body
  # devise (...), :timeoutable
 
@@ -22,7 +22,13 @@ class User < ActiveRecord::Base
     end
     def role?(role)
         return !!self.roles.find_by_name(role.to_s.camelize)
-      end
-      
-      
+    end
+
+    def apply_omniauth(omniauth)
+      authorizations.build(provider: omniauth['provider'], uid: omniauth['uid'])
+    end
+
+    #def password_required?
+      #(authorizations.empty? || !password.blank?) && super
+    #end
 end

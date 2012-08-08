@@ -12,6 +12,7 @@ gem "rmagick"
 gem 'devise'
 gem 'cancan'
 gem "omniauth-facebook"
+gem "omniauth-twitter"
 
 gem "activerecord-postgresql-adapter"
 

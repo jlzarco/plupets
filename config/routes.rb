@@ -2,9 +2,11 @@ Plupets::Application.routes.draw do
   get "pages_controller/home"
 
   resources :roles
+  #resources :authentications
 
-  devise_for :users
-  match '/auth/:provider/callback' => 'authentications#create'
+  devise_for :users, path_name: {sign_in: "login", sign_out: "logout" },
+              controllers: { omniauth_callbacks: "omniauth_callbacks" ,
+                             registrations: "registrations"}
 
   root to: 'pages_controller#home'
 
