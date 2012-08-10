@@ -17,14 +17,15 @@
 
   <div><%= f.submit "Update" %></div>
 <% end %>
-  <%- if devise_mapping.omniauthable? %>
-    <%- resource_class.omniauth_providers.each do |provider| %>
-      <% unless provider?(current_user, provider) -%>
-        <p>Add another service to log in:</p>
-      <%= link_to "#{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
-      <% end -%>
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <% unless provider?(current_user, provider) -%>
+      <p>Add another service to log in:</p>
+      <%= image_tag "#{provider.to_s}_32.png" %>
+      <%= link_to "#{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %>
     <% end -%>
   <% end -%>
+<% end -%>
 
 <h3>Cancel my account</h3>
 
