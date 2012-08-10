@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   #has_and_belongs_to_many :role
-  has_many :authorizations
+  has_many :authorizations, dependent: :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
       authorizations.build(provider: omniauth['provider'], uid: omniauth['uid'])
     end
 
-    #def password_required?
-      #(authorizations.empty? || !password.blank?) && super
-    #end
+    def password_required?
+      (authorizations.empty? || !password.blank?) && super
+    end
 end

@@ -4,19 +4,27 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+    <%= f.email_field :email %></div>
 
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+    <%= f.password_field :password, :autocomplete => "off" %></div>
 
   <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+    <%= f.password_field :password_confirmation %></div>
 
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+    <%= f.password_field :current_password %></div>
 
   <div><%= f.submit "Update" %></div>
 <% end %>
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <% unless provider?(current_user, provider) -%>
+        <p>Add another service to log in:</p>
+      <%= link_to "#{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+      <% end -%>
+    <% end -%>
+  <% end -%>
 
 <h3>Cancel my account</h3>
 
