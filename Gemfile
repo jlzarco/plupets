@@ -31,6 +31,10 @@ group :test do
   gem 'factory_girl_rails'
 end
 
+group :production do
+ gem 'hirb'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
