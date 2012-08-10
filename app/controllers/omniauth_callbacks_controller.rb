@@ -46,6 +46,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         #session[:omniauth] = omniauth.except('extra')
         #redirect_to new_user_registration_url
       #end
+      session['devise.user_email'] = omniauth['info']['email']
       redirect_to new_user_registration_url, alert: "Please make an account first"
     end
   end
