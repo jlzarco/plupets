@@ -3,6 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
   def new
     if session['devise.user_email']
       @user = User.new(email: session['devise.user_email'])
+      session['devise.user_email'] = nil
     else
       super
     end
@@ -11,7 +12,6 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
     session[:omniauth] = nil unless @user.new_record?
-    session['devise.user_email'] = nil
   end
 
   private

@@ -1,4 +1,5 @@
 Plupets::Application.routes.draw do
+
   get "pages_controller/home"
 
   resources :roles
