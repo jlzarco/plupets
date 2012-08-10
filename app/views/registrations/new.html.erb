@@ -4,7 +4,11 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %><br />
-    <%= f.email_field :email %></div>
+    <% if session['devise.user_email'] %>
+      <%= f.email_field :email, disabled: true %></div>
+    <% else %>
+      <%= f.email_field :email %></div>
+    <% end %>
   <% if @user.password_required? -%>
     <div><%= f.label :password %><br />
       <%= f.password_field :password %></div>
