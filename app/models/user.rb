@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
   #has_and_belongs_to_many :role
   has_many :authorizations, dependent: :destroy
+  has_one :pet
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,:omniauthable
+         :rememberable, :trackable, :validatable,:omniauthable
+         #:recoverable,
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me ,:role_ids ,:provider
