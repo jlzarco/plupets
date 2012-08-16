@@ -13,6 +13,7 @@ gem 'devise'
 gem 'cancan'
 gem "omniauth-facebook"
 gem "omniauth-twitter"
+gem "koala"
 
 gem "activerecord-postgresql-adapter"
 

@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120807184658) do
-
-  create_table "authentications", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120813212806) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -30,6 +22,14 @@ ActiveRecord::Schema.define(:version => 20120807184658) do
   end
 
   add_index "authorizations", ["user_id"], :name => "index_authorizations_on_user_id"
+
+  create_table "photos", :force => true do |t|
+    t.string   "name"
+    t.integer  "gallery_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "image"
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

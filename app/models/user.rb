@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   #has_and_belongs_to_many :role
   has_many :authorizations, dependent: :destroy
+  #has_one :pet
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -25,7 +26,7 @@ class User < ActiveRecord::Base
     end
 
     def apply_omniauth(omniauth)
-      authorizations.build(provider: omniauth['provider'], uid: omniauth['uid'])
+      authorizations.build(provider: omniauth['provider'], uid: omniauth['uid'], name: omniauth['info']['name'],image: omniauth['info']['image'])
     end
 
     def password_required?

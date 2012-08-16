@@ -27,6 +27,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     #raise request.env["omniauth.auth"].to_yaml
     omniauth = request.env["omniauth.auth"]
+    #user={}
+    #user[:name =>omniauth['info']['name']]
+    #user[:image =>omniauth['info']['image']]
     user_with_email = User.find_by_email(omniauth['info']['email'])
     authentication = Authorization.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication #if the authentication exists
