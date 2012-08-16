@@ -1,0 +1,26 @@
+<p>
+Name:
+<%= @pet.name %>
+</p>
+
+<p>
+Description:
+<%= @pet.description %>
+</p>
+
+<p>
+Status:
+<%= pet_status(@pet.status) %>
+</p>
+
+<p>
+Type:
+<%= pet_type(@pet.animal_type) %>
+</p>
+
+<p>
+Race:
+<%= @pet.race %>
+</p>
+
+<%= link_to "Edit #{@pet.name}'s profile", edit_pet_path %>

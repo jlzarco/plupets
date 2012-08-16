@@ -1,0 +1,7 @@
+<p>Email: <%= current_user.email %></p>
+
+<% if @pet %>
+  <%= link_to "#{@pet.name}'s profile", @pet %>
+<% else %>
+  <p>Don't have a pet? <%= link_to 'Create one', new_pet_path %></p>
+<% end %>
