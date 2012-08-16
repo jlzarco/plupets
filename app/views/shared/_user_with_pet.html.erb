@@ -1,0 +1,17 @@
+<div class="sign_in">
+  <% if current_user.pet %>
+    <li><%= link_to current_user.email, current_user %></li>
+    |
+    <li><%= user_with_pet(current_user) %></li>
+    |
+    <li> <%= link_to('Edit', edit_user_registration_path) %> </li>
+    |
+    <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+  <% else %>
+    <li><%= link_to current_user.email, current_user %></li>
+    |
+    <li> <%= link_to('Edit', edit_user_registration_path) %> </li>
+    |
+    <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+  <% end %>
+</div>
