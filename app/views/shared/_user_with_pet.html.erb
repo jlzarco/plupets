@@ -2,7 +2,7 @@
   <% if current_user.pet %>
     <li><%= link_to current_user.email, current_user %></li>
     |
-    <li><%= link_to "#{current_user.pet.name}'s Profile", current_user.pet %></li>
+    <li><%= link_to "#{current_user.pet.name}'s Profile", user_pets_path(current_user) %></li>
     |
     <li> <%= link_to('Edit', edit_user_registration_path) %> </li>
     |

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   def index
     @users = User.all
 
@@ -19,4 +20,11 @@ class UsersController < ApplicationController
       format.json  { render json: @user }
     end
   end
+
+  protected
+
+    def record_not_found
+      flash[:error] = "The user you requested could not be found"
+      redirect_to root_path
+    end
 end

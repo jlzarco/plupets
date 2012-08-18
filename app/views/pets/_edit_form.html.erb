@@ -1,4 +1,4 @@
-<%= form_for [@user, @pet] do |f| -%>
+<%= form_for @pet, url: user_pets_path(@user) do |f| -%>
   <% if @pet.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(@pet.errors.count, 'error') %> prohibited this pet from being saved.</h2>
