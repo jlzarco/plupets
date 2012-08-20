@@ -1,6 +1,6 @@
-<%= form_for @painting, :html =>{:multipart =>true} do |f|%>
+<%= form_for ([@pet,@photo]), :html =>{:multipart =>true} do |f|%>
 	<%=f.error_messages%>
-	<%=f.hidden_field :gallery_id%>
+	<%=f.hidden_field :pet_id%>
 	<p>
 		<%=f.label :name%>
 		<%=f.text_field :name%>

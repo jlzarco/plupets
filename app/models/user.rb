@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   #has_and_belongs_to_many :role
   has_many :authorizations, dependent: :destroy
-
   has_one :pet
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -9,6 +8,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable,:omniauthable
          #:recoverable,
+  #son los roles que puede adquirir
+  ROLES = %w[admin loged info]
+  #metodos que vienen en cancan 
+  def roles=(roles)
+    self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
+  end
+
+  def roles
+    ROLES.reject do |r|
+      ((roles_mask || 0) & 2**ROLES.index(r)).zero?
+    end
+  end
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me ,:role_ids ,:provider
@@ -23,9 +34,7 @@ class User < ActiveRecord::Base
         2.days
       end
     end
-    def role?(role)
-        return !!self.roles.find_by_name(role.to_s.camelize)
-    end
+    
 
     def apply_omniauth(omniauth)
       authorizations.build(provider: omniauth['provider'], uid: omniauth['uid'], name: omniauth['info']['name'],image: omniauth['info']['image'])

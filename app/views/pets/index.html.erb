@@ -1,0 +1,11 @@
+
+<% title "pets" %>
+
+<% for pet in @pets %>
+  <div class="pet">
+    <h2><%= link_to pet.name, pet %></h2>
+    photos: <%= pet.photos.size %>
+  </div>
+<% end %>
+
+<p><%= link_to "New pet", new_pet_path %></p>

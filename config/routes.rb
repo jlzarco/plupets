@@ -6,18 +6,17 @@ Plupets::Application.routes.draw do
 
   get "pages_controller/home"
   match '/auth/:provider/callback', to: 'sessions#create'
-
   resources :roles
-  resources :pets do
+  resources :pets do 
     resources :photos
   end
+  
 
   devise_for :users, path_name: {sign_in: "login", sign_out: "logout" },
               controllers: { omniauth_callbacks: "omniauth_callbacks" ,
                              registrations: "registrations"}
 
   resources :users, only: [:index, :show]
-  resources :pets
 
   root to: 'pages_controller#home'
 

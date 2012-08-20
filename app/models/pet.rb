@@ -1,6 +1,7 @@
 class Pet < ActiveRecord::Base
   attr_accessible :description, :name, :status, :user_id, :animal_type, :race
   belongs_to :user
+  has_many :photos
   validates_uniqueness_of :user_id
   validates_presence_of :animal_type, :status, :name, :race
   validates :description, presence: true, length: { maximum: 230 }

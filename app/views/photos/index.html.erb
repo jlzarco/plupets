@@ -1,0 +1,20 @@
+<% title @pet.name %>
+<div id="photos">
+  <% for photo in @pet.photos %>
+    <div class="photo">
+      <%= image_tag photo.image_url(:thumb) if photo.image? %>
+      <div class="name"><%= photo.name %></div>
+      <div class="actions">
+        <%= link_to "edit", edit_pet_photo_path(@pet,photo) %> |
+        <%= link_to "remove", pet_photo_path(@pet,photo), :confirm => 'Are you sure?', :method => :delete %>
+      </div>
+    </div>
+  <% end %>
+  <div class="clear"></div>
+</div>
+
+<p>
+  <%= link_to "Add a photo", new_pet_photo_path(@pet) %> |
+  <%= link_to "Remove pet", @pet, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View pets", pets_path %>
+</p>

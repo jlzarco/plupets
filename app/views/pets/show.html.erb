@@ -22,5 +22,8 @@ Type:
 Race:
 <%= @pet.race %>
 </p>
-
-<%= link_to "Edit #{@pet.name}'s profile", edit_pet_path %>
+    
+  <%= link_to "View pets", pets_path %>
+  <%= link_to "Edit #{@pet.name}'s profile", edit_pet_path %>
+  <%= link_to "photos of #{@pet.name}",pet_photos_path(@pet)%>
+<% title @pet.name %>

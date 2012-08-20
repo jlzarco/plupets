@@ -69,5 +69,4 @@ class PetsController < ApplicationController
        redirect_to current_user
       end
     end
-
 end
