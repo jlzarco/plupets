@@ -2,14 +2,8 @@
   <ul>
     <li><%= link_to 'Home', root_path %></li>
     <% if user_signed_in? %>
-      <div class="sign_in">
 
-        <li><%= link_to current_user.email, current_user %></li>
-        |
-        <li> <%= link_to('Edit', edit_user_registration_path) %> </li>
-        |
-        <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-      </div>
+      <%= render 'shared/user_with_pet' %>
     <% else %>
       <div class="sign_in">
         <li><%= link_to 'Register', new_user_registration_path %></li>

@@ -16,7 +16,9 @@ Plupets::Application.routes.draw do
               controllers: { omniauth_callbacks: "omniauth_callbacks" ,
                              registrations: "registrations"}
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    resource :pets
+  end
 
   root to: 'pages_controller#home'
 

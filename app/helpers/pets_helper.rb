@@ -31,4 +31,8 @@ module PetsHelper
 
   end
 
+  def user_pet_path(*args)
+    user_pets_path(*args)
+  end
+
 end

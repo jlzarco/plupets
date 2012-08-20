@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   #has_and_belongs_to_many :role
   has_many :authorizations, dependent: :destroy
-  has_one :pet
+  has_one :pet, dependent: :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
