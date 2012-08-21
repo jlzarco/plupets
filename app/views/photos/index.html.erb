@@ -7,7 +7,7 @@
       <div class="actions">
         <%= link_to "edit", edit_user_pets_photo_path(@user, photo) %> |
         <%# no quitar el parametro photo %>
-        <%= link_to "remove", user_pets_photo_path(@user, photo), :confirm => 'Are you sure?', :method => :delete %>
+        <%= link_to "remove", user_pets_photo_path(@user,photo), :confirm => 'Are you sure?', :method => :delete %>
       </div>
     </div>
   <% end %>

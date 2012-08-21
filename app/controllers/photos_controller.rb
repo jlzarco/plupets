@@ -1,7 +1,6 @@
 class PhotosController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
   before_filter :correct_user, only: [:new,:create,:edit,:destroy]
-
   def index
     @user = User.find(params[:user_id])
     @pet = @user.pet
@@ -56,6 +55,6 @@ class PhotosController < ApplicationController
     @pet = @user.pet
     @photo = @pet.photos.find(params[:id])
     @photo.destroy
-    redirect_to user_pets_photos_path(@pet), notice: "Successfully destroyed photo"
+    redirect_to user_pets_photos_path(@user), notice: "Successfully destroyed photo"
   end
 end
