@@ -19,7 +19,6 @@ db/*.sqlite3
 log/*.log
 tmp/
 .sass-cache/
-config/database.yml
 ## generic files to ignore
 *~
 *.lock
@@ -27,3 +26,4 @@ config/database.yml
 *.swp
 *.out
 config/database.yml # user plupets, psw plupets
+public/uploads/*

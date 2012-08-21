@@ -17,8 +17,15 @@ development:
   encoding: unicode
   database: plupets_development
   pool: 5
+<<<<<<< HEAD
   username: postgres
   password: ipxvspdp
+=======
+  host: localhost
+  username: plupets
+  password: plupets
+
+>>>>>>> 01624450cb8f1b1cc258047c7467c5816213b0e3
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
@@ -42,15 +49,27 @@ test:
   encoding: unicode
   database: plupets_test
   pool: 5
+<<<<<<< HEAD
   username: postgres
   password: ipxvspdp
+=======
+  host: localhost
+  username: plupets
+  password: plupets
+>>>>>>> 01624450cb8f1b1cc258047c7467c5816213b0e3
 
 production:
   adapter: postgresql
   encoding: unicode
   database: plupets_production
   pool: 5
+<<<<<<< HEAD
   username: postgres
   password: ipxvspdp
   
 
+=======
+  host: localhost
+  username: plupets
+  password: plupets
+>>>>>>> 01624450cb8f1b1cc258047c7467c5816213b0e3
