@@ -26,4 +26,4 @@ config/database.yml
 *.DS_Store
 *.swp
 *.out
-config/database.yml
+config/database.yml # user plupets, psw plupets

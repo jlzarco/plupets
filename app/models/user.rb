@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          #:recoverable,
   #son los roles que puede adquirir
   ROLES = %w[admin loged info]
-  #metodos que vienen en cancan 
+  #metodos que vienen en cancan
   def roles=(roles)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
   end
@@ -34,7 +34,6 @@ class User < ActiveRecord::Base
         2.days
       end
     end
-    
 
     def apply_omniauth(omniauth)
       authorizations.build(provider: omniauth['provider'], uid: omniauth['uid'])
