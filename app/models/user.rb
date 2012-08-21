@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   end
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me ,:role_ids ,:provider
+  attr_accessible :email, :password, :password_confirmation, :remember_me ,:roles ,:provider
 
   # attr_accessible :title, :body
  # devise (...), :timeoutable
@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
     
 
     def apply_omniauth(omniauth)
-      authorizations.build(provider: omniauth['provider'], uid: omniauth['uid'], name: omniauth['info']['name'],image: omniauth['info']['image'])
+      authorizations.build(provider: omniauth['provider'], uid: omniauth['uid'])
     end
 
     def password_required?

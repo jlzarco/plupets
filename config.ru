@@ -2,3 +2,5 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 run Plupets::Application
+use Rack::Static, :urls => ['/carrierwave'], :root => 'tmp' # adding this line
+run YourApplicationName::Application

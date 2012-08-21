@@ -11,6 +11,8 @@ class Ability
           can :read, :all
        elsif user.role? :notLoge
          can :read , :home
+       end
+       can :read ,:all
     #
     # The first argument to `can` is the action you are giving the user permission to do.
     # If you pass :manage it will apply to every action. Other common actions here are
@@ -25,6 +27,5 @@ class Ability
     #   can :update, Article, :published => true
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
-  end
 end
 end
