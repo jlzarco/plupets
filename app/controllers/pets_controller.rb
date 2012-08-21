@@ -47,7 +47,6 @@ class PetsController < ApplicationController
 
   def edit
     @user = User.find(params[:user_id])
-    #@pet = Pet.find(params[:id])
     @pet = @user.pet
   end
 
@@ -84,14 +83,6 @@ class PetsController < ApplicationController
       if @user.pet
        flash[:error] = "You can only have one pet for now"
        redirect_to @user
-      end
-    end
-
-    def correct_user
-      @user = User.find(params[:user_id])
-      unless @user == current_user
-        flash[:error] = "You are not authorized to do this action"
-        redirect_to root_path
       end
     end
 end
