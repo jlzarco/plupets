@@ -6,10 +6,10 @@ class PhotosController < ApplicationController
     @user = User.find(params[:user_id])
     @pet = @user.pet
     @photos = @pet.photos
-    respond_to do |format|
-      format.html
-      format.json
-    end
+    #respond_to do |format|
+      #format.html
+      #format.json
+    #end
   end
 
   def new
@@ -21,7 +21,7 @@ class PhotosController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @pet = @user.pet
-    @photo=@pet.photos.new(params[:photo])
+    @photo=@pet.photos.build(params[:photo])
     if @photo.save
       flash[:notice]="successfully created the photo"
       redirect_to user_pets_photos_path(@user)

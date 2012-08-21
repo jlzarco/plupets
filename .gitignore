@@ -27,3 +27,4 @@ config/database.yml
 *.swp
 *.out
 config/database.yml # user plupets, psw plupets
+public/uploads/*
