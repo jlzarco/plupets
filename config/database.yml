@@ -17,6 +17,7 @@ development:
   encoding: unicode
   database: plupets_development
   pool: 5
+  host: localhost
   username: plupets
   password: plupets
 
@@ -43,6 +44,7 @@ test:
   encoding: unicode
   database: plupets_test
   pool: 5
+  host: localhost
   username: plupets
   password: plupets
 
@@ -51,5 +53,6 @@ production:
   encoding: unicode
   database: plupets_production
   pool: 5
+  host: localhost
   username: plupets
   password: plupets
