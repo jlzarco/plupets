@@ -14,6 +14,7 @@ gem 'cancan'
 gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "koala"
+gem "fog"
 
 gem "activerecord-postgresql-adapter"
 
