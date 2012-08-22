@@ -1,10 +1,11 @@
 class Pet < ActiveRecord::Base
-  attr_accessible :description, :name, :status, :user_id, :animal_type, :race
+  attr_accessible :description, :name, :status, :user_id, :animal_type, :race, :avatar
   belongs_to :user
   has_many :photos
   validates_uniqueness_of :user_id
   validates_presence_of :animal_type, :status, :name, :race
   validates :description, presence: true, length: { maximum: 230 }
+  mount_uploader :avatar, ImageUploader
 
   STATUS = { '1' => 'Has owner',
              '2' => 'Looking for mate',
