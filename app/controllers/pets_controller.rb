@@ -85,4 +85,22 @@ class PetsController < ApplicationController
        redirect_to @user
       end
     end
+    def save_and_process_avatar(options = {})
+        if options[:now]
+          self.remote_avatar_url = avatar.direct_fog_url(:with_path => true)
+          save
+        else
+          Resque.enqueue(AvatarProcessor, attributes)
+        end
+      end
+    end
+
+    class AvatarProcessor
+      @queue = :avatar_processor_queue
+
+      def self.perform(attributes)
+        user = User.new(attributes)
+        user.save_and_process_avatar(:now => true)
+      end
+    end
 end

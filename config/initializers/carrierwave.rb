@@ -24,4 +24,12 @@ CarrierWave.configure do |config|
   config.fog_directory  = 'plupets'                     # required
   config.fog_public     = true                                   # optional, defaults to true
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  # optional, defaults to {}
+  config.validate_is_attached = true             # defaults to false
+   config.validate_is_uploaded = true             # defaults to false
+   config.validate_unique_filename = false        # defaults to true
+   config.validate_filename_format = false        # defaults to true
+   config.validate_remote_net_url_format = false  # defaults to true
+
+   config.max_file_size     = 10.megabytes        # defaults to 5.megabytes
+   config.upload_expiration = 1.hour              # defaults to 10.hours
 end
