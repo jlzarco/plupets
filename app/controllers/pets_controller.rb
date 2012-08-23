@@ -93,7 +93,7 @@ class PetsController < ApplicationController
           Resque.enqueue(AvatarProcessor, attributes)
         end
       end
-    end
+  
       def self.perform(attributes)
         @queue = :avatar_processor_queue
         user = User.new(attributes)
