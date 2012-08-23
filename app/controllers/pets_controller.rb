@@ -94,13 +94,9 @@ class PetsController < ApplicationController
         end
       end
     end
-
-    class AvatarProcessor
-      @queue = :avatar_processor_queue
-
       def self.perform(attributes)
+        @queue = :avatar_processor_queue
         user = User.new(attributes)
         user.save_and_process_avatar(:now => true)
       end
-    end
 end
