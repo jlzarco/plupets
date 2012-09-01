@@ -32,10 +32,19 @@
  #end
 #end
 CarrierWave.configure do |config|
-  config.root = Rails.root.join('tmp') # adding these...
-  config.cache_dir = 'carrierwave' # ...two lines
+  config.fog_credentials = {
+    provider: 'AWS',
+    aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+    aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+  }
+  config.fog_public = false
 
-  config.s3_access_key_id = ENV['AWS_ACCESS_KEY_ID'],
-  config.s3_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY'],
-  config.s3_bucket = ENV['S3_Bucket_NAME']
+  if Rails.env.production?
+    config.fog_directory = ENV['BUCKET_PROD']
+  elsif Rails.env.staging?
+    config.fog_directory = ENV['BUCKET_STA']
+  else
+    config.fog_directory = ENV['BUCKET_DEV']
+  end
+
 end
