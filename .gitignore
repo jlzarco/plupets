@@ -27,3 +27,4 @@ tmp/
 *.out
 config/database.yml # user plupets, psw plupets
 public/uploads/*
+tmb/uploads/*
