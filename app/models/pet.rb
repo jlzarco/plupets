@@ -6,6 +6,7 @@ class Pet < ActiveRecord::Base
   validates_presence_of :animal_type, :status, :name, :race
   validates :description, presence: true, length: { maximum: 230 }
   mount_uploader :avatar, ImageUploader
+  acts_as_paranoid
 
   STATUS = { '1' => 'Has owner',
              '2' => 'Looking for mate',

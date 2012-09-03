@@ -1,19 +1,23 @@
 <% title @pet.name %>
+<h2>Photos of <%= @pet.name %></h2>
 <div id="photos">
   <% for photo in @photos %>
     <div class="photo">
       <%= image_tag photo.image_url(:thumb) if photo.image? %>
       <div class="name"><%= photo.name %></div>
-      <div class="actions">
-        <%= link_to "edit", edit_user_pets_photo_path(@user, photo) %> |
-        <%# no quitar el parametro photo %>
-        <%= link_to "remove", user_pets_photo_path(@user,photo), :confirm => 'Are you sure?', :method => :delete %>
-      </div>
+      <% if current_user == @user %>
+        <div class="actions">
+          <%= link_to "edit", edit_user_pets_photo_path(@user, photo) %> |
+          <%# no quitar el parametro photo %>
+          <%= link_to "remove", user_pets_photo_path(@user,photo), :confirm => 'Are you sure?', :method => :delete %>
+        </div>
+      <% end %>
     </div>
   <% end %>
   <div class="clear"></div>
 </div>
 
-<p>
-  <%= link_to "Add a photo", new_user_pets_photo_path(@user) %>
-</p>
+<% if current_user == @user %>
+  <p> <%= link_to "Add a photo", new_user_pets_photo_path(@user) %> </p>
+<% end -%>
+<%= link_to 'Back', user_pets_path(@user) %>

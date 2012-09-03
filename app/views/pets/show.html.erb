@@ -1,7 +1,7 @@
 <%= link_to "Photos of #{@pet.name}", user_pets_photos_path(@user) %>
 <p>
   Avatar:
-  <%= image_tag @pet.avatar.to_s %>
+  <%= image_tag @pet.avatar.url(:thumb) %>
 </p>
 <p>
   Name:
@@ -28,7 +28,14 @@
   <%= @pet.race %>
 </p>
 
-
-<%= link_to "Edit #{@pet.name}'s profile", edit_user_pets_path(@user) %>
+<% if current_user == @user %>
+  <%= link_to "Edit #{@pet.name}'s profile", edit_user_pets_path(@user) %> |
+  <% if @pet.deleted? %>
+    <%= link_to "Recover #{@pet.name}", recover_user_pets_path(@user), method: :post %> |
+  <% else %>
+    <%= link_to "Hide #{@pet.name}", hide_user_pets_path(@user), { confirm: "Are you sure?", method: :delete } %> |
+  <% end %>
+  <%= link_to "Delete #{@pet.name}", "#" %>
+<% end %>
 
 

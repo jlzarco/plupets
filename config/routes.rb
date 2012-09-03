@@ -11,9 +11,11 @@ Plupets::Application.routes.draw do
   devise_for :users, path_name: {sign_in: "login", sign_out: "logout" },
               controllers: { omniauth_callbacks: "omniauth_callbacks" ,
                              registrations: "registrations"}
- 
+
   resources :users, only: [:index, :show] do
     resource :pets do
+      member { post :recover }
+      member { delete :hide }
       resources :photos
     end
   end

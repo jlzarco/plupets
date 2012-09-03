@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @pet = @user.pet
+    @pet = Pet.with_deleted.find_by_user_id(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

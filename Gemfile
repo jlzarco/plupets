@@ -16,7 +16,7 @@ gem "omniauth-twitter"
 gem "koala"
 gem "fog", "~> 1.3.1"
 gem "activerecord-postgresql-adapter"
-
+gem "rails3_acts_as_paranoid", "~>0.2.0"
 
 group :development, :test do
     gem 'rspec-rails', '2.10.0'

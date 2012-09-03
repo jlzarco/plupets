@@ -1,7 +1,21 @@
 <p>Email: <%= @user.email %></p>
 
 <% if @pet %>
-  <%= link_to "#{@pet.name}'s profile", user_pets_path(@user) %>
-<% else %>
-  <p>Don't have a pet? <%= link_to 'Create one', new_user_pets_path(@user) %></p>
+  <% if @pet.deleted? %>
+    <% if current_user == @user %>
+      <p>Your pet is hidden</p>
+      <%= link_to "Recover #{@pet.name}", recover_user_pets_path(@user), method: :post %> or
+      <%= link_to "Delete #{@pet.name}", "#" %>
+    <% else -%>
+      <p>User has no pets</p>
+    <% end %>
+  <% else -%>
+    <%= link_to "#{@pet.name}'s profile", user_pets_path(@user) %>
+  <% end %> <%# endif %>
+<% else %> <%# user has no pet %>
+  <% if current_user == @user %>
+    <p>Don't have a pet? <%= link_to 'Create one', new_user_pets_path(@user) %></p>
+  <% else %>
+    <p>User has no pets</p>
+  <% end %>
 <% end %>

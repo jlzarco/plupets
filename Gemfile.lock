@@ -171,6 +171,8 @@ GEM
       activesupport (= 3.2.5)
       bundler (~> 1.0)
       railties (= 3.2.5)
+    rails3_acts_as_paranoid (0.2.4)
+      activerecord (~> 3.2)
     railties (3.2.5)
       actionpack (= 3.2.5)
       activesupport (= 3.2.5)
@@ -258,6 +260,7 @@ DEPENDENCIES
   omniauth-twitter
   pg
   rails (= 3.2.5)
+  rails3_acts_as_paranoid (~> 0.2.0)
   rb-fsevent
   rb-inotify (= 0.8.8)
   rmagick

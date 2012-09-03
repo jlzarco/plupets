@@ -1,4 +1,5 @@
 <p>Edit Pet</p>
 <%= render 'edit_form' %>
 <%= link_to 'Back', user_pets_path(@user) %> |
+<%= link_to 'Hide Pet', hide_user_pets_path(@user), method: :delete, confirm: "Are you sure you want to hide #{@pet.name}?" %> |
 <%= link_to 'Delete Pet', user_pets_path(@user), method: :delete,  confirm: "Are you sure you want to delete your pet?" %>

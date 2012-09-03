@@ -61,7 +61,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   version :thumb do
-    process :resize_to_limit =>[400,400]
+    process :resize_to_limit =>[150,150]
   end
 
 end
