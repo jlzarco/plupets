@@ -16,7 +16,7 @@ gem "omniauth-twitter"
 gem "koala"
 gem "fog"
 gem 'carrierwave_direct'
-
+gem 'nifty-generators'
 
 gem "activerecord-postgresql-adapter"
 

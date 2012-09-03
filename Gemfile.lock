@@ -136,6 +136,7 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.5.2)
+    nifty-generators (0.4.6)
     nokogiri (1.5.5)
     oauth (0.4.6)
     oauth2 (0.8.0)
@@ -263,6 +264,7 @@ DEPENDENCIES
   jquery-rails
   koala
   libnotify (= 0.5.9)
+  nifty-generators
   omniauth-facebook
   omniauth-twitter
   pg

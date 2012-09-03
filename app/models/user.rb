@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable,:omniauthable
          #:recoverable,
+         
+  #named_scope :with_role, lambda { |role| {:conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0"} }       
   #son los roles que puede adquirir
   ROLES = %w[admin loged info]
   #metodos que vienen en cancan
@@ -19,6 +21,9 @@ class User < ActiveRecord::Base
     ROLES.reject do |r|
       ((roles_mask || 0) & 2**ROLES.index(r)).zero?
     end
+  end
+  def role?(role)
+    role.include? role.to_s
   end
 
   # Setup accessible (or protected) attributes for your model

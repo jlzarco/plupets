@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   def index
     @users = User.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json  { render json: @users }
@@ -14,7 +13,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @pet = @user.pet
-
     respond_to do |format|
       format.html # show.html.erb
       format.json  { render json: @user }

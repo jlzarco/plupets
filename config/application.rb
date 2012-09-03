@@ -6,6 +6,8 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
+require "net/http"
+require "rails/all"
 # require "rails/test_unit/railtie"
 
 if defined?(Bundler)
@@ -17,7 +19,6 @@ end
 
 module Plupets
   class Application < Rails::Application
-    config.action_controller.allow_forgery_protection = false
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
