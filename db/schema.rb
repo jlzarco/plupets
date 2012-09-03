@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120825012643) do
     t.datetime "updated_at", :null => false
   end
 
+
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
     t.string   "uid"
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120825012643) do
     t.integer  "animal_type"
     t.string   "race"
     t.string   "avatar"
+    t.time     "deleted_at"
   end
 
   create_table "photos", :force => true do |t|

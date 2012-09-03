@@ -4,7 +4,6 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
-  include CarrierWaveDirect::Uploader
   # include CarrierWave::MiniMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
@@ -15,19 +14,21 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :file
   #storage :s3
   storage :fog
+
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-  #def store_dir
-   # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-   #end
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
 
-   def extension_white_list
+  def extension_white_list
     %w(jpg jpeg gif png)
-   end
-  # def cache_dir
-  # "#{Rails.root}/tmp/uploads"
-  # end
-   
+  end
+
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
+  end
+
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -61,7 +62,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   version :thumb do
-      process :resize_to_limit =>[400,400]
-    end
+    process :resize_to_limit =>[400,400]
+  end
 
 end

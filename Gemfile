@@ -14,10 +14,8 @@ gem 'cancan'
 gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "koala"
-gem "fog"
-gem 'carrierwave_direct'
-gem 'nifty-generators'
-
+gem "fog", "~> 1.3.1"
+gem 'nifty-generators's
 gem "activerecord-postgresql-adapter"
 
 

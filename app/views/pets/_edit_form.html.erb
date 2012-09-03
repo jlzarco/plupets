@@ -22,12 +22,12 @@
 
   <div class="field">
     <%= f.label :status %> <br />
-    <%= f.select(:status, options_for_select(all_statuses), include_blank: true) %>
+    <%= f.select(:status, options_for_select(all_statuses, @pet.status), include_blank: true) %>
   </div>
 
   <div class="field">
     <%= f.label :animal_type, 'Type of animal' %>
-    <%= f.select(:animal_type, options_for_select(animal_types), include_blank: true) %>
+    <%= f.select(:animal_type, options_for_select(animal_types, @pet.animal_type), include_blank: true) %>
   </div>
 
   <div class="field">
