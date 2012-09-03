@@ -15,6 +15,7 @@ gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "koala"
 gem "fog", "~> 1.3.1"
+gem 'nifty-generators's
 gem "activerecord-postgresql-adapter"
 gem "rails3_acts_as_paranoid", "~>0.2.0"
 

@@ -1,0 +1,4 @@
+<%broadcast new_user_message_path(@user) do%>
+$("#chat").append("<%= escape_javascript render(@message)%>");
+<%end%>
+$("#new_message")[0].reset();

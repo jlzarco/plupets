@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//<%= escape_javascript render(User.find(params[:user_id])))%>
+$(function(){
+	var faye = new Faye.Client('http://localhost:9292/faye');
+	faye.subscribe( "<%= new_user_message_path(@user)%>" ,function(data){
+		eval(data);
+	});
+});
