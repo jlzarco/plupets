@@ -35,7 +35,7 @@
   <% else %>
     <%= link_to "Hide #{@pet.name}", hide_user_pets_path(@user), { confirm: "Are you sure?", method: :delete } %> |
   <% end %>
-  <%= link_to "Delete #{@pet.name}", "#" %>
+  <%= link_to "Delete #{@pet.name}", user_pets_path(@user), { confirm: "Are you sure? (This will DELETE #{@pet.name})", method: :delete } %>
 <% end %>
 
 
